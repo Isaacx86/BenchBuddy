@@ -1,0 +1,32 @@
+.workoutComplete { 
+    background: lightgreen;
+
+}
+
+.workoutIncomplete { 
+    background: lightcoral; 
+}
+
+.workoutButton{
+    height:3rem;
+    width: 3rem;
+    margin: 1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.workoutButton:hover{
+    filter: brightness(85%);
+}
+
+.card{
+    width: 20rem;
+    margin: auto;
+}
+
+.bottom-buffer{
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    
+}
