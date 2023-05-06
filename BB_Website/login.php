@@ -39,55 +39,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link href="styles/style.css" rel="stylesheet">
     </head>
-    <body style="background: #f5f5f5;">
-        <nav class="navbar navbar-expand-lg bg-success bg-gradient text-light mb-2">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">
-               <img class="rounded" src="images/bench_buddy-removebg-preview.png" alt="Bench Buddy" height="50" width="100">
-               <!-- <h1 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 500;">Bench Buddy</h1> -->
-              </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="login.html">Login</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-        </nav>
+    <body>
+        <div class="vh-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center mt-5">
+                    <div class="col-md-8 col-lg-7 col-xl-6">
+                        <img src="bench_buddy-removebg-preview.png" class="img-fluid" alt="Logo">
+                    </div>
 
-        <div class="container-fluid text-center">
-            <div class="row d-flex justify-content-center align-items-center">
-                
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <p>test</p>
+                    <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 mt-5">
+                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+                            <div class="form-floating mb-4">
+                                <input type="email" id="email" name="email" class="form-control form-control-lg"><br><br>
+                                <label class="form-label" for="email">Email address</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="password" id="password" name="password" class="form-control form-control-lg"><br><br>
+                                <label class="form-label" for="password">Password</label>
+                            </div>
+
+                            <input type="submit" name="login" value="Login" class="btn btn-success btn-lg btn-block mb-4">
+
+                            <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="registration.php"
+                            style="color: #393f81;">Register here</a></p>
+                        </form>
+                    </div>
                 </div>
-
-                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                        <div class="form-outline mb-4">
-                            <input type="email" id="email" name="email" class="form-control form-control-lg"><br><br>
-                            <label class="form-label" for="email">Email address</label>
-                        </div>
-                        <div class="form-outline mb-4">
-                            <input type="password" id="password" name="password" class="form-control form-control-lg"><br><br>
-                            <label class="form-label" for="password">Password</label>
-                        </div>
-
-                        <input type="submit" name="login" value="Login" class="btn btn-success btn-lg btn-block">
-                    </form>
-                </div>
-                
             </div>
         </div>
-
-        <footer class="navbar fixed-bottom bg-success bg-gradient text-light">
-          <div class="text-center p-3">
-            © 2023 Copyright: MATZAC Ltd.
-          </div>
-        </footer>
     </body>
 </html>
