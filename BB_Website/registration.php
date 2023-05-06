@@ -49,37 +49,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="vh-100">
             <div class="container py-3 h-100">
                 <div class="row d-flex justify-content-center align-items-center text-center">
-                    <div class="col-md-4 mx-auto">
+                    <div class="col-md-3 mx-auto">
                         <img src="bench_buddy-removebg-preview.png" class="img-fluid" alt="Logo">
                     </div>
                 </div>
-                <div class="row d-flex justify-content-center align-items-center mt-5">
+                <div class="row d-flex justify-content-center align-items-center mt-4">
                     <div class="col-md-6 text-center">
                         <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                             
                             <div class="form-floating mb-2"> 
-                                <input type="text" id="name" name="name" class="form-control form-control-lg"><br><br>
+                                <input type="text" id="name" name="name" class="form-control"><br><br>
                                 <label class="form-label" for="name">Name</label>
                             </div>
 
                             <div class="form-floating mb-2">
-                                <input type="email" id="email" name="email" class="form-control form-control-lg"><br><br>
+                                <input type="email" id="email" name="email" class="form-control"><br><br>
                                 <label class="form-label" for="email">Email address</label>
-                            </div>
-
-                            <div class="form-floating mb-2">
-                                <input type="password" id="password" name="password" class="form-control form-control-lg"><br><br>
-                                <label class="form-label" for="password">Password</label>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6 form-floating mb-2">
-                                    <input type="number" min="0" id="age" name="age" class="form-control form-control-lg"><br><br>
+                                    <input type="password" id="password" name="password" class="form-control"><br><br>
+                                    <label class="form-label" for="password">Password</label>
+                                </div>
+
+                                <div class="col-md-6 form-floating mb-2">
+                                    <input type="number" min="0" id="weight" name="weight" class="form-control"><br><br>
+                                    <label class="form-label" for="height">Weight (KG)</label>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 form-floating mb-2">
+                                    <input type="number" min="0" max="100" id="age" name="age" class="form-control"><br><br>
                                     <label class="form-label" for="age">Age</label>
                                 </div>
 
                                 <div class="col-md-6 form-floating mb-2">
-                                    <input type="number" min="0" id="height" name="height" class="form-control form-control-lg"><br><br>
+                                    <input type="number" min="0" id="height" name="height" class="form-control"><br><br>
                                     <label class="form-label" for="height">Height (CM)</label>
                                 </div>
                             </div>
