@@ -42,3 +42,9 @@ body{
    border-left: 0.5rem solid black ;
    overflow: hidden;
 }
+
+
+/*STOP WATCH*/
+.digit{
+    font-size: 4vw;
+}
