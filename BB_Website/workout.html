@@ -14,11 +14,12 @@
         
         
         <div class="container">
+            <!--Timer Row-->
             <div class="row text-center justify-content-center"> 
                 <div class="col-sm-1 p-0"> 
-                    <div class="digit" id="min">
-                        <p>00</p>
-                    </div>
+                    <span class="digit" id="min">
+                        00
+                    </span>
                 </div>
 
                 <div class="col-sm-1 p-0"> 
@@ -28,11 +29,40 @@
                 </div>
 
                 <div class="col-sm-1 p-0">
-                    <div class="digit" id="sec">
-                        <p>00</p>
+                    <span class="digit" id="sec">
+                        00
+                    </span>
+                </div>
+            </div>
+            <!--End timer row-->
+            
+
+            <!--Button Row-->
+            <div class="row justify-content-center">
+                <div class="col-md-6 justify-content-center">
+                    <div class="row">
+                        <button class="btn btn-success" id="start">Start</button>
+                    </div>
+                </div>
+                <div class="col-md-6 justify-content-center">
+                    <div class="row">
+                        <button class="btn btn-danger" id="stop">Stop</button>
                     </div>
                 </div>
             </div>
+            <!--End Button Row-->
+
+            <div class="row d-flex justify-content-center align-items-center mt-5">
+                <div class="col-md-5 col-lg-7 col-xl-6">
+                    
+                </div>
+
+                <div class="col-md-5 col-lg-5 col-xl-5 offset-xl-1 mt-5">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/c74kMCOmP80" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+
         </div>
     
         <form>
