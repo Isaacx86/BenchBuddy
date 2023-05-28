@@ -86,7 +86,7 @@
           <?php
           include("session.php");
           include("db.php");
-
+        
           if (!isset($_SESSION['email'])) {
             // user is not logged in, so redirect to login page
             header("Location: login.php");
