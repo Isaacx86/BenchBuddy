@@ -4,47 +4,36 @@ document.addEventListener('DOMContentLoaded', function() {
   let set2 = document.getElementById('set2');
   let set3 = document.getElementById('set3');
   let set4 = document.getElementById('set4');
-  
+
   let nextBtn = document.getElementById('nextEx');
   let stopBtn = document.getElementById('stop');
 
-  let setSelector = 0;
   let setCounter = 0;
-
-  let watchStart = 1;
-  let timer = false;
+  let setSelector = 0;
+  let timer;
 
   set1.addEventListener('click', function(){
-    colorChange('set1')
-    setSelector = 1;
-    timer = true;
-    disableButtons();
-    stopWatch();
-    watchStart = 1;
+    colorChange('set1');
+    disableButtons(1);
+    startTimer(1);
   });
 
   set2.addEventListener('click', function(){
-    colorChange('set2')
-    setSelector = 2;
-    timer = true;
-    disableButtons();
-    stopWatch();
-    watchStart = 1;
+    colorChange('set2');
+    disableButtons(2);
+    startTimer(2);
   });
 
   set3.addEventListener('click', function(){
-    colorChange('set3')
-    setSelector = 3;
-    timer = true;
-    disableButtons();
-    stopWatch();
-    watchStart = 1;
+    colorChange('set3');
+    disableButtons(3);
+    startTimer(3);
   });
 
   set4.addEventListener('click', function(){
-    colorChange('set4')
+    colorChange('set4');
+    startTimer(4);
     setSelector = 4;
-    watchStart = 1;
   });
   
   function colorChange(id) {
@@ -52,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentClass = el.getAttribute("class");
     if (currentClass === "workoutIncomplete workoutButton") {
       el.setAttribute("class", "workoutComplete workoutButton");
-      el.textContent="Done";
+      el.textContent = "Done";
       el.disabled = true;
       setCounter += 1;
     }
@@ -61,40 +50,31 @@ document.addEventListener('DOMContentLoaded', function() {
       nextBtn.disabled = false;
     }
   }
-  //End Button colour chaanger
+  // End Button color changer
 
   // Stopwatch function
   stopBtn.addEventListener('click', function () {
-    timer = false;
+    if (timer) {
+      clearInterval(timer);
+    }
   });
 
-  function stopWatch() {
-    if (timer) {
+  function startTimer(set) {
+    let minute = 0;
+    let second = 3;
 
-      if (watchStart === 1) {
-        var minute = 1;
-        var second = 30;
-        var count = 0;
-        watchStart = 0;
+    timer = setInterval(function () {
+      if (second === 0 && minute === 0) {
+        clearInterval(timer);
+        enableButtons(1);
+        return;
       }
 
-      
-      count++;
-
-      if (count === 100) {
-        second--;
-        count = 0;
-      }
-  
       if (second === 0) {
-        if (minute > 0){
-          minute--;
-          second = 59;
-        }
-        else{
-          timer = false;
-          enableButtons();
-        }
+        minute--;
+        second = 59;
+      } else {
+        second--;
       }
 
       let minString = minute.toString().padStart(2, '0');
@@ -105,48 +85,31 @@ document.addEventListener('DOMContentLoaded', function() {
   
       minElement.textContent = minString;
       secElement.textContent = secString;
-  
-      setTimeout(stopWatch, 10);
-    }
+    }, 1000);
   }
-  //End stopwatch function 
+  // End stopwatch function 
 
-  function enableButtons() {
-    if (setSelector === 1){
+  function enableButtons(set) {
+    if (set === 1) {
       set2.disabled = false;
       set3.disabled = false;
       set4.disabled = false;
     }
-  
-    if (setSelector === 2){
+
+    if (set === 2) {
       set3.disabled = false;
       set4.disabled = false;
     }
-  
-    if (setSelector === 3){
+
+    if (set === 3) {
       set4.disabled = false;
     }
-
-    return;
   }
 
-  function disableButtons() {
-    if (setSelector === 1){
-      set2.disabled = true;
-      set3.disabled = true;
-      set4.disabled = true;
-    }
-  
-    if (setSelector === 2){
-      set3.disabled = true;
-      set4.disabled = true;
-    }
-  
-    if (setSelector === 3){
-      set4.disabled = true;
-    }
+  function disableButtons(set) {
 
-    return;
+    set2.disabled = true;
+    set3.disabled = true;
+    set4.disabled = true;
   }
-  
 });
