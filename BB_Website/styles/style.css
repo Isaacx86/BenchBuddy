@@ -12,16 +12,11 @@ body{
 }
 
 .workoutButton{
-    height:3rem;
-    width: 3rem;
+    height:6rem;
+    width: 6rem;
     margin: 1rem;
-    border-radius: 50%;
     font-weight: bold;
     font-size: larger;
-}
-
-.workoutButton:hover{
-    filter: brightness(85%);
 }
 
 .card{
@@ -44,6 +39,12 @@ body{
 
 
 /*STOP WATCH*/
-.digit p{
+.digit p {
     font-size: 4rem;
+    margin: 0;
 }
+
+
+
+  
+  
