@@ -65,6 +65,21 @@ body{
     border-radius: 20%;
 }
 
+/*Review Page*/
+.review-form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .form-group.required label:after {
+    content: '*';
+    color: red;
+  }
+
+  .center-button {
+    text-align: center;
+  }
+
 
 
   
