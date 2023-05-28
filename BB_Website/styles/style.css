@@ -44,6 +44,6 @@ body{
 
 
 /*STOP WATCH*/
-.digit{
-    font-size: 4vw;
+.digit p{
+    font-size: 4rem;
 }

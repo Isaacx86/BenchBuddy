@@ -54,8 +54,8 @@ document.addEventListener('DOMContentLoaded', function() {
       let secString = second.toString().padStart(2, '0');
       let countString = count.toString().padStart(2, '0');
 
-      document.getElementById('min').innerHTML = minString;
-      document.getElementById('sec').innerHTML = secString;
+      document.getElementById('min').textContent = minString;
+      document.getElementById('sec').textContent = secString;
 
       setTimeout(stopWatch, 10);
     }
