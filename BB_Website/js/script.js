@@ -14,26 +14,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
   set1.addEventListener('click', function(){
     colorChange('set1');
-    disableButtons(1);
     startTimer(1);
   });
 
   set2.addEventListener('click', function(){
     colorChange('set2');
-    disableButtons(2);
     startTimer(2);
   });
 
   set3.addEventListener('click', function(){
     colorChange('set3');
-    disableButtons(3);
     startTimer(3);
   });
 
   set4.addEventListener('click', function(){
     colorChange('set4');
-    startTimer(4);
-    setSelector = 4;
   });
   
   function colorChange(id) {
@@ -60,13 +55,28 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function startTimer(set) {
-    let minute = 0;
-    let second = 3;
+    let minute = 1;
+    let second = 30;
 
     timer = setInterval(function () {
       if (second === 0 && minute === 0) {
         clearInterval(timer);
-        enableButtons(1);
+
+        if(set === 1)
+        {
+          set2.disabled = false;
+        }
+    
+        if(set === 2)
+        {
+          set3.disabled = false;
+        }
+    
+        if(set === 3)
+        {
+          set4.disabled = false;
+        }
+
         return;
       }
 
@@ -88,28 +98,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 1000);
   }
   // End stopwatch function 
-
-  function enableButtons(set) {
-    if (set === 1) {
-      set2.disabled = false;
-      set3.disabled = false;
-      set4.disabled = false;
-    }
-
-    if (set === 2) {
-      set3.disabled = false;
-      set4.disabled = false;
-    }
-
-    if (set === 3) {
-      set4.disabled = false;
-    }
-  }
-
-  function disableButtons(set) {
-
-    set2.disabled = true;
-    set3.disabled = true;
-    set4.disabled = true;
-  }
 });
