@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let stopBtn = document.getElementById('stop');
 
   let setCounter = 0;
-  let setSelector = 0;
+
   let timer;
 
   set1.addEventListener('click', function(){
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
   set4.addEventListener('click', function(){
     colorChange('set4');
   });
-  
+
   function colorChange(id) {
     let el = document.getElementById(id);
     let currentClass = el.getAttribute("class");
@@ -48,15 +48,33 @@ document.addEventListener('DOMContentLoaded', function() {
   // End Button color changer
 
   // Stopwatch function
-  stopBtn.addEventListener('click', function () {
-    if (timer) {
-      clearInterval(timer);
+  stopBtn.addEventListener('click', function (e) {  
+    
+    // Display confirmation dialog when stop button is clicked
+    const confirmationMessage = 'Are you sure you want to finish your workout?';
+    if (!confirm(confirmationMessage)) {
+      e.preventDefault();
     }
-  });
 
+  });
+  
+  window.addEventListener('beforeunload', function (event) {
+    if (!stopBtn.clicked) {
+      return;
+    }
+    event.preventDefault();
+    event.returnValue = 'Are you sure you want to finish your workout?';
+  });
+  
+  window.addEventListener('unload', function () {
+    window.location.href = 'index.html';
+  });
+  
+  
+  
   function startTimer(set) {
-    let minute = 1;
-    let second = 30;
+    let minute = 0;
+    let second = 1;
 
     timer = setInterval(function () {
       if (second === 0 && minute === 0) {
@@ -66,12 +84,12 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           set2.disabled = false;
         }
-    
+
         if(set === 2)
         {
           set3.disabled = false;
         }
-    
+
         if(set === 3)
         {
           set4.disabled = false;
@@ -89,13 +107,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
       let minString = minute.toString().padStart(2, '0');
       let secString = second.toString().padStart(2, '0');
-  
+
       let minElement = document.getElementById('min');
       let secElement = document.getElementById('sec');
-  
+
       minElement.textContent = minString;
       secElement.textContent = secString;
     }, 1000);
   }
-  // End stopwatch function 
+  // End stopwatch function
+
 });
