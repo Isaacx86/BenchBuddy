@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
   });
-  
+    
   window.addEventListener('beforeunload', function (event) {
     if (!stopBtn.clicked) {
       return;
@@ -65,11 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
     event.returnValue = 'Are you sure you want to finish your workout?';
   });
-  
+
   window.addEventListener('unload', function () {
     window.location.href = 'index.html';
   });
-  
+    
   
   
   function startTimer(set) {
@@ -117,30 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   // End stopwatch function
 
-  let submitReview = document.getElementById('submitReview'); 
-
-  submitReview.addEventListener('click', function(){
-    validateForm();
-  });
-
-  function validateForm() {
-    var exercises = document.getElementsByClassName("exercise");
-    var isValid = true;
-  
-    for (var i = 0; i < exercises.length; i++) {
-      var difficulty = document.forms["reviewForm"]["difficulty" + (i + 1)].value;
-      var weightLifted = document.forms["reviewForm"]["weightLifted" + (i + 1)].value;
-  
-      if (difficulty === "" || weightLifted === "") {
-        isValid = false;
-        break;
-      }
-    }
-  
-    if (!isValid) {
-      alert("Please fill in all the fields.");
-      return false;
-    }
-  }
-  
 });
+
+
+
