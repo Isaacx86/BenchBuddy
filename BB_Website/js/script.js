@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   set4.addEventListener('click', function(){
     colorChange('set4');
+    startTimer(4);
   });
 
   function colorChange(id) {
@@ -74,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   function startTimer(set) {
     let minute = 0;
-    let second = 1;
+    let second = 5;
 
     timer = setInterval(function () {
       if (second === 0 && minute === 0) {
